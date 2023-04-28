@@ -70,24 +70,3 @@ if streamlit.button('Get Fruit  List'):
 
     
  
-#don't run anything past here while we troubleshoot
-streamlit.stop()
-
-#streamlit.write('The user entered ', fruit_choice)
-#import requests
-#streamlit.text(fruityvice_response.json())#Just writes the data to the screen
-#take the json version of the response and normalize it
-#output it the screen as a table
-  
-  
-#my_cur = my_cnx.cursor()
-my_cur.execute("select * from pc_rivery_db.public.fruit_load_list")
-my_data_rows = my_cur.fetchall()
-streamlit.header("The fruit load list contains:")
-streamlit.dataframe(my_data_rows)
-
-add_my_fruit = streamlit.text_input('What fruit would you like information about?','jackfruit')
-streamlit.write('Thanks for adding',add_my_fruit)
-
-#This will not work correctly,but just go with it for now
-my_cur.execute("insert into PC_RIVERY_DB.PUBLIC.FRUIT_LOAD_LIST values('from streamlit')")
